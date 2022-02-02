@@ -3,18 +3,19 @@
 
 PhoneBook::Contact::Contact(void) : _Fill(0){
 
-    std::cout << "Constructor called" << std::endl;
 }
 
 PhoneBook::Contact::~Contact(void) {
 
-    std::cout << "Destructor called" << std::endl;
 
 }
 
 void PhoneBook::Contact::setFill(void) {
 
-    PhoneBook::Contact::_Fill = 1;
+	if (PhoneBook::Contact::_Fill == 0)
+    	PhoneBook::Contact::_Fill = 1;
+	else
+    	PhoneBook::Contact::_Fill = 0;
 }
 int PhoneBook::Contact::getFill(void) const {
 

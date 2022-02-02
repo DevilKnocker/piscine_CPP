@@ -31,6 +31,12 @@ public:
 	PhoneBook(void);
 	~PhoneBook(void);
 
+	bool delete_contact(void);
+	void add_contact(void);
+	int	how_many_contact(void) const;
+	void	print_contacts(void) const;
+
+
 private:
 
 };
