@@ -1,6 +1,6 @@
 CC = clang++
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 HEADER =
 
@@ -10,7 +10,7 @@ SRCS = main.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
-MAIN = bureaucrat
+MAIN = conv
 
 RM = rm -rf
 
