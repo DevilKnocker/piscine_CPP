@@ -6,24 +6,19 @@
 */
 
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string target){
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : Form("ShrubberyCreationForm", 145, 137){
 
-	setName("ShrubberyCreationForm");
 	setTarget(target);
 	setSigned(false);
-	setGradetoSign(145);
-	setGradetoExec(137);
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(){
+ShrubberyCreationForm::ShrubberyCreationForm() : Form("ShrubberyCreationForm", 145, 137){
 
-	setName("ShrubberyCreationForm");
+	setTarget("notarget");
 	setSigned(false);
-	setGradetoSign(145);
-	setGradetoExec(137);
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm( const ShrubberyCreationForm & src ){
+ShrubberyCreationForm::ShrubberyCreationForm( const ShrubberyCreationForm & src ) : Form("ShrubberyCreationForm", 145, 137){
 
 	*this = src;
 }
@@ -46,10 +41,7 @@ ShrubberyCreationForm &				ShrubberyCreationForm::operator=( ShrubberyCreationFo
 {
 	if ( this != &rhs )
 	{
-		setName("ShrubberyCreationForm");
 		setSigned(rhs.getSigned());
-		setGradetoSign(rhs.getGradetoSign());
-		setGradetoExec(rhs.getGradetoExec());
 	}
 	return *this;
 }
@@ -75,14 +67,14 @@ void	ShrubberyCreationForm::action() const{
 
 	std::fstream fs;
 
-	fs.open(getTarget(), std::fstream::in);
+	fs.open(getTarget() + "_shrubbery", std::fstream::in);
 	if (fs.is_open() == true)
 	{
 		throw(ShrubberyCreationForm::FileAlreadyExistException());
 		return ;
 	}
 	fs.close();
-	fs.open(getTarget(), std::fstream::out);
+	fs.open(getTarget() + "_shrubbery", std::fstream::out);
 	fs << "                                                         .\n                                              .         ;  \n                 .              .              ;%     ;;   \n                   ,           ,                :;%  %;   \n                    :         ;                   :;%;'     .,   \n           ,.        %;     %;            ;        %;'    ,;\n             ;       ;%;  %%;        ,     %;    ;%;    ,%'\n              %;       %;%;      ,  ;       %;  ;%;   ,%;' \n               ;%;      %;        ;%;        % ;%;  ,%;'\n                `%;.     ;%;     %;'         `;%%;.%;'\n                 `:;%.    ;%%. %@;        %; ;@%;%'\n                    `:%;.  :;bd%;          %;@%;'\n                      `@%:.  :;%.         ;@@%;'   \n                        `@%.  `;@%.      ;@@%;         \n                          `@%%. `@%%    ;@@%;        \n                            ;@%. :@%%  %@@%;       \n                              %@bd%%%bd%%:;     \n                                #@%%%%%:;;\n                                %@@%%%::;\n                                %@@@%(o);  . '         \n                                %@@@o%;:(.,'         \n                            `.. %@@@o%::;         \n                               `)@@@o%::;         \n                                %@@(o)::;        \n                               .%@@@@%::;         \n                               ;%@@@@%::;.          \n                              ;%@@@@%%:;;;. \n                          ...;%@@@@@%%:;;;;,..    " << std::endl;
 	fs.close();
 }

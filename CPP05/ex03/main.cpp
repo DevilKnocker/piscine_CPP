@@ -10,34 +10,19 @@ int main()
 	try
 	{
 		Bureaucrat jeff("jeff", 1);
-		Form buildingrequest("buildingrequest", 150, 150);
-		std::cout << jeff << std::endl;
-		std::cout << buildingrequest << std::endl;
-		jeff.signForm(&buildingrequest);
-		jeff.increment();
-		jeff.signForm(&buildingrequest);
-		
-		std::cout << "--------------------\n";
-		
-		ShrubberyCreationForm shrub("target");
-		RobotomyRequestForm robo("target");
-		PresidentialPardonForm pres("target");
-
-		jeff.signForm(&shrub);
-		jeff.signForm(&robo);
-		jeff.signForm(&pres);
-		jeff.executeForm(robo);
-		jeff.executeForm(shrub);
-		jeff.executeForm(pres);
-		
-		std::cout << "--------------------\n";
-
-	
 		Intern intern;
 		Form* shrubby = intern.makeForm("ShrubberyCreationForm", "bobby");
+		Form* roby = intern.makeForm("RobotomyRequestForm", "bobby");
+		Form* presy = intern.makeForm("PresidentialPardonForm", "bobby");
 		jeff.signForm(shrubby);
 		jeff.executeForm(*shrubby);
+		jeff.signForm(roby);
+		jeff.executeForm(*roby);
+		jeff.signForm(presy);
+		jeff.executeForm(*presy);
 		delete shrubby;
+		delete roby;
+		delete presy;
 	}
 	catch(Bureaucrat::GradeTooHighException e)
 	{

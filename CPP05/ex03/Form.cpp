@@ -4,31 +4,25 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Form::Form(){
+Form::Form() : _name("noname"), _grade_to_sign(150), _grade_to_exec(150){
 
 }
 
-Form::Form(std::string name, int gradetosign, int gradetoexec){
+Form::Form(std::string name, int gradetosign, int gradetoexec) : _name(name), _grade_to_sign(gradetosign), _grade_to_exec(gradetoexec){
 
-	_name = name;
-	_signed = 0;
 
 	if (gradetosign > 150)
 		throw(Form::GradeTooHighException());
 	else if (gradetosign < 1)
 		throw(Form::GradeTooLowException());
-	else
-		_grade_to_sign = gradetosign;
 
 	if (gradetoexec > 150)
 		throw(Form::GradeTooHighException());
 	else if (gradetoexec < 1)
 		throw(Form::GradeTooLowException());
-	else
-		_grade_to_exec = gradetoexec;
 }
 
-Form::Form( const Form & src ){
+Form::Form( const Form & src ) : _name(src.getName()), _signed(src.getSigned()), _grade_to_sign(src.getGradetoSign()), _grade_to_exec(src.getGradetoExec()){
 
 	*this = src;
 }
@@ -51,10 +45,7 @@ Form &				Form::operator=( Form const & rhs )
 {
 	if ( this != &rhs )
 	{
-		this->_name = rhs.getName();
 		this->_signed = rhs.getSigned();
-		this->_grade_to_sign = rhs.getGradetoSign();
-		this->_grade_to_exec = rhs.getGradetoExec();
 	}
 	return *this;
 }
@@ -133,11 +124,6 @@ int Form::getGradetoExec() const{
 	return (_grade_to_exec);
 }
 
-void Form::setName(std::string name) {
-
-	_name = name;
-}
-
 void Form::setTarget(std::string target) {
 
 	_target = target;
@@ -147,16 +133,5 @@ void Form::setSigned(bool sign) {
 
 	_signed = sign;
 }
-
-void Form::setGradetoSign(int gradetosign) {
-
-	_grade_to_sign = gradetosign;
-}
-
-void Form::setGradetoExec(int gradetoexec) {
-
-	_grade_to_exec = gradetoexec;
-}
-
 
 /* ************************************************************************** */

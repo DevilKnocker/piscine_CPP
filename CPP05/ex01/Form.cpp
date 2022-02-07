@@ -4,31 +4,26 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Form::Form(){
+Form::Form() : _name("noname"), _grade_to_sign(150), _grade_to_exec(150){
 
 }
 
-Form::Form(std::string name, int gradetosign, int gradetoexec){
+Form::Form(std::string name, int gradetosign, int gradetoexec) : _name(name), _grade_to_sign(gradetosign), _grade_to_exec(gradetoexec){
 
-	_name = name;
 	_signed = 0;
 
 	if (gradetosign > 150)
-		throw(Form::GradeTooHighException());
-	else if (gradetosign < 1)
 		throw(Form::GradeTooLowException());
-	else
-		_grade_to_sign = gradetosign;
+	else if (gradetosign < 1)
+		throw(Form::GradeTooHighException());
 
 	if (gradetoexec > 150)
-		throw(Form::GradeTooHighException());
-	else if (gradetoexec < 1)
 		throw(Form::GradeTooLowException());
-	else
-		_grade_to_exec = gradetoexec;
+	else if (gradetoexec < 1)
+		throw(Form::GradeTooHighException());
 }
 
-Form::Form( const Form & src ){
+Form::Form( const Form & src ) : _name(src.getName()), _grade_to_sign(src.getGradetoSign()), _grade_to_exec(src.getGradetoExec()){
 
 	*this = src;
 }
@@ -51,10 +46,7 @@ Form &				Form::operator=( Form const & rhs )
 {
 	if ( this != &rhs )
 	{
-		this->_name = rhs.getName();
 		this->_signed = rhs.getSigned();
-		this->_grade_to_sign = rhs.getGradetoSign();
-		this->_grade_to_exec = rhs.getGradetoExec();
 	}
 	return *this;
 }

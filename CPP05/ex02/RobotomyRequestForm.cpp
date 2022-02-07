@@ -5,24 +5,19 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-RobotomyRequestForm::RobotomyRequestForm(std::string target){
+RobotomyRequestForm::RobotomyRequestForm(std::string target) : Form("RobotomyRequestForm", 72, 45){
 
-	setName("RobotomyRequestForm");
 	setTarget(target);
 	setSigned(false);
-	setGradetoSign(72);
-	setGradetoExec(45);
 }
 
-RobotomyRequestForm::RobotomyRequestForm(){
+RobotomyRequestForm::RobotomyRequestForm() : Form("RobotomyRequestForm", 72, 45){
 
-	setName("RobotomyRequestForm");
+	setTarget("notarget");
 	setSigned(false);
-	setGradetoSign(72);
-	setGradetoExec(45);
 }
 
-RobotomyRequestForm::RobotomyRequestForm( const RobotomyRequestForm & src ){
+RobotomyRequestForm::RobotomyRequestForm( const RobotomyRequestForm & src ) : Form("RobotomyRequestForm", 72, 45){
 
 	*this = src;
 }
@@ -45,10 +40,7 @@ RobotomyRequestForm &				RobotomyRequestForm::operator=( RobotomyRequestForm con
 {
 	if ( this != &rhs )
 	{
-		setName("RobotomyRequestForm");
 		setSigned(rhs.getSigned());
-		setGradetoSign(rhs.getGradetoSign());
-		setGradetoExec(rhs.getGradetoExec());
 	}
 	return *this;
 }

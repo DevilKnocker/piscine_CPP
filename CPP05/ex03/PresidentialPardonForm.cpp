@@ -4,24 +4,19 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-PresidentialPardonForm::PresidentialPardonForm(std::string target){
+PresidentialPardonForm::PresidentialPardonForm(std::string target) : Form("PresidentialPardonForm", 25, 5){
 
-	setName("PresidentialPardonForm");
 	setTarget(target);
 	setSigned(false);
-	setGradetoSign(25);
-	setGradetoExec(5);
 }
 
-PresidentialPardonForm::PresidentialPardonForm(){
+PresidentialPardonForm::PresidentialPardonForm() : Form("PresidentialPardonForm", 25, 5){
 
-	setName("PresidentialPardonForm");
+	setTarget("notarget");
 	setSigned(false);
-	setGradetoSign(25);
-	setGradetoExec(5);
 }
 
-PresidentialPardonForm::PresidentialPardonForm( const PresidentialPardonForm & src ){
+PresidentialPardonForm::PresidentialPardonForm( const PresidentialPardonForm & src ) : Form("PresidentialPardonForm", 25, 5){
 
 	*this = src;
 }
@@ -44,10 +39,7 @@ PresidentialPardonForm &				PresidentialPardonForm::operator=( PresidentialPardo
 {
 	if ( this != &rhs )
 	{
-		setName("PresidentialPardonForm");
 		setSigned(rhs.getSigned());
-		setGradetoSign(rhs.getGradetoSign());
-		setGradetoExec(rhs.getGradetoExec());
 	}
 	return *this;
 }
@@ -71,7 +63,7 @@ std::ostream &			operator<<( std::ostream & o, PresidentialPardonForm const & i 
 
 void	PresidentialPardonForm::action() const{
 
-	std::cout << getTarget() << " was forgiven by Zafod Beeblebrox" << std::endl;
+	std::cout << getTarget() << " was forgiven by Zaphod Beeblebrox" << std::endl;
 }
 
 /*

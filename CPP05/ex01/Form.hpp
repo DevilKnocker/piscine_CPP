@@ -26,7 +26,7 @@ class Form
 			public:
 				virtual const char* what() const throw()
 				{
-					return ("GradeTooLowException : Form Grade too low or bureaucrat trying to sign with low grade");
+					return ("GradeTooLowException : Form Grade too low or bureaucrat trying to sign with too low grade");
 				}
 		};
 
@@ -50,10 +50,10 @@ class Form
 	
 	private:
 
-	std::string _name;
+	std::string const _name;
 	bool _signed;
-	int	_grade_to_sign;
-	int _grade_to_exec;
+	int	const _grade_to_sign;
+	int const _grade_to_exec;
 };
 
 std::ostream &			operator<<( std::ostream & o, Form const & i );

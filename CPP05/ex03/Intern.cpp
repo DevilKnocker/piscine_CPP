@@ -54,7 +54,7 @@ Form* Intern::makeshrub(std::string target){
 Form* Intern::makeForm(std::string formname, std::string targetname){
 
 	std::string tab[3] = {"ShrubberyCreationForm", "RobotomyRequestForm", "PresidentialPardonForm"};
-	Form* (Intern::*fct[3])(std::string target) = {&Intern::makeshrub, &Intern::makerobo};
+	Form* (Intern::*fct[3])(std::string target) = {&Intern::makeshrub, &Intern::makerobo, &Intern::makepres};
 	int i = 0;
 
 	while (i < 3)

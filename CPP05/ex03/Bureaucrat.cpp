@@ -11,9 +11,9 @@ Bureaucrat::Bureaucrat(){
 Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name){
 
 	if (grade > 150)
-		throw(Bureaucrat::GradeTooHighException());
-	else if (grade < 1)
 		throw(Bureaucrat::GradeTooLowException());
+	else if (grade < 1)
+		throw(Bureaucrat::GradeTooHighException());
 	else
 		_grade = grade;
 }
@@ -61,7 +61,7 @@ void Bureaucrat::increment(){
 
 	if (_grade == 1)
 	{
-		std::cout << getName() << " already has maximum grade" << std::endl;
+		throw(Bureaucrat::GradeTooHighException());
 		return ;
 	}
 	_grade--;
@@ -71,7 +71,7 @@ void Bureaucrat::decrement(){
 
 	if (_grade == 150)
 	{
-		std::cout << getName() << " already has minimum grade" << std::endl;
+		throw(Bureaucrat::GradeTooLowException());
 		return ;
 	}
 	_grade++;

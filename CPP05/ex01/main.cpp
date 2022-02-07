@@ -12,6 +12,9 @@ int main()
 		jeff.signForm(&buildingrequest);
 		jeff.increment();
 		jeff.signForm(&buildingrequest);
+		Bureaucrat bobby("bobby", 150);
+		Form changemayorrequest("changemayorrequest", 1, 1);
+		bobby.signForm(&changemayorrequest);
 	}
 	catch(Bureaucrat::GradeTooHighException e)
 	{
@@ -35,5 +38,5 @@ int main()
 	}
 
 
-	std::cout << "no exception caught" << std::endl;
+	std::cout << "ended" << std::endl;
 }

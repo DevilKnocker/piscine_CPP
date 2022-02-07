@@ -35,7 +35,7 @@ class Form
 			public:
 				virtual const char* what() const throw()
 				{
-					return ("GradeTooLowException : Form Grade too low or bureaucrat trying to sign/execute with low grade");
+					return ("GradeTooLowException : Form Grade too low or bureaucrat trying to sign/execute with too low grade");
 				}
 		};
 
@@ -47,8 +47,8 @@ class Form
 		Form &		operator=( Form const & rhs );
 
 		bool beSigned(Bureaucrat);
-		virtual void execute(Bureaucrat const & executor) const;
-		virtual void action() const;
+		void execute(Bureaucrat const & executor) const;
+		virtual void action() const = 0;
 
 		std::string getName() const;
 		std::string getTarget() const;
@@ -56,11 +56,8 @@ class Form
 		int getGradetoSign() const;
 		int getGradetoExec() const;
 
-		void setName(std::string name);
 		void setTarget(std::string target);
 		void setSigned(bool sign);
-		void setGradetoSign(int gradetosign);
-		void setGradetoExec(int gradetoexec);
 			
 
 	protected:
@@ -69,11 +66,11 @@ class Form
 	
 	private:
 
-	std::string _name;
+	std::string const _name;
 	std::string _target;
 	bool _signed;
-	int	_grade_to_sign;
-	int _grade_to_exec;
+	int	const _grade_to_sign;
+	int const _grade_to_exec;
 };
 
 std::ostream &			operator<<( std::ostream & o, Form const & i );

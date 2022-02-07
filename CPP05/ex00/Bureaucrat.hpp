@@ -20,10 +20,10 @@ class Bureaucrat
 		class GradeTooLowException : public std::exception
 		{
 			public:
-			virtual const char* what() const throw()
-			{
-				return ("Exception caught : Grade too low");
-			}
+				virtual const char* what() const throw()
+				{
+					return ("Exception caught : Grade too low");
+				}
 		};
 
 

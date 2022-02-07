@@ -9,15 +9,6 @@ int main()
 	try
 	{
 		Bureaucrat jeff("jeff", 1);
-		Form buildingrequest("buildingrequest", 150, 150);
-		std::cout << jeff << std::endl;
-		std::cout << buildingrequest << std::endl;
-		jeff.signForm(&buildingrequest);
-		jeff.increment();
-		jeff.signForm(&buildingrequest);
-		
-		std::cout << "--------------------\n";
-		
 		ShrubberyCreationForm shrub("target");
 		RobotomyRequestForm robo("target");
 		PresidentialPardonForm pres("target");
