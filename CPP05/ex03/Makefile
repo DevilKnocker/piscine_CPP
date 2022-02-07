@@ -1,0 +1,34 @@
+
+CC = clang++
+
+CFLAGS = -Wall -Wextra -Werror
+
+HEADER = Bureaucrat.hpp Form.hpp ShrubberyCreationForm.hpp PresidentialPardonForm.hpp RobotomyRequestForm.hpp Intern.hpp
+
+INCLUDES = -I.
+
+SRCS = main.cpp Bureaucrat.cpp Form.cpp ShrubberyCreationForm.cpp PresidentialPardonForm.cpp RobotomyRequestForm.cpp Intern.cpp
+
+OBJS = $(SRCS:.cpp=.o)
+
+MAIN = bureaucrat
+
+RM = rm -rf
+
+all:	$(MAIN)
+
+$(MAIN): $(OBJS)
+		$(CC) $(CFLAGS) -o $(MAIN) $(OBJS)
+
+%.o: %.cpp $(HEADER)
+		$(CC) $(CFLAGS) -c $<  -o $@ $(INCLUDES)
+
+clean:
+		$(RM) $(OBJS)
+
+fclean: clean
+	$(RM) $(MAIN)
+
+re: fclean all
+
+.PHONY: all clean fclean re
