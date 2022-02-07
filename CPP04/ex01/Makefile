@@ -2,15 +2,15 @@ CC = clang++
 
 CFLAGS = -Wall -Wextra -Werror
 
-HEADER = Account.hpp
+HEADER = Animal.hpp Cat.hpp Dog.hpp WrongAnimal.hpp WrongCat.hpp Brain.hpp
 
 INCLUDES = -I.
 
-SRCS = Account.cpp tests.cpp
+SRCS = main.cpp Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp Brain.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
-MAIN = account
+MAIN = brain
 
 RM = rm -rf
 

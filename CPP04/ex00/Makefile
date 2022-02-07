@@ -2,15 +2,15 @@ CC = clang++
 
 CFLAGS = -Wall -Wextra -Werror
 
-HEADER = PhoneBook.class.hpp
+HEADER = Animal.hpp Cat.hpp Dog.hpp WrongAnimal.hpp WrongCat.hpp
 
 INCLUDES = -I.
 
-SRCS = PhoneBook.class.cpp Contact.class.cpp annuaire.cpp
+SRCS = main.cpp Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
-MAIN = annuaire
+MAIN = animal
 
 RM = rm -rf
 
